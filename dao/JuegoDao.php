@@ -20,8 +20,11 @@ class JuegoDao {
                 $funcion = $pdo->prepare("INSERT INTO juego VALUES(?,?,?,?);");
                 $funcion->bindParam(1, $dto->getCodigo());
                 $funcion->bindParam(2, $dto->getNombre());
-                //Arreglar
-                $funcion->bindParam(3, $dto->getRestriccion());
+                if ($dto->getRestriccion() == TRUE) {
+                    $funcion->bindParam(3, 1);
+                }else{
+                    $funcion->bindParam(3, 0);
+                }
                 $funcion->bindParam(4, $dto->getValor());
                 $funcion->execute();
                 $pdo = null;
@@ -47,11 +50,10 @@ class JuegoDao {
                 $dto = new JuegoDto();
                 $dto->setCodigo($value['codigo']);
                 $dto->setNombre($value['nombre']);
-                //arreglar este punto, es boolean y debe pasar a int
-                if ($value['restriccion']==1) {
-                $dto->setRestriccion(TRUE);                    
-                }else{
-                $dto->setRestriccion(FALSE);  
+                if ($value['restriccion'] == 1) {
+                    $dto->setRestriccion(TRUE);
+                } else {
+                    $dto->setRestriccion(FALSE);
                 }
                 $lista->append($dto);
             }
