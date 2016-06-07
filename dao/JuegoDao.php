@@ -6,11 +6,9 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of JuegoDao
- *
- * @author cetecom
- */
+include_once '../dto/JuegoDto.php';
+include_once '../sql/ClasePDO.php';
+
 class JuegoDao {
 
     public static function agregarJuego($dto) {

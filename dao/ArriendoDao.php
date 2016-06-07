@@ -6,11 +6,9 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of ArriendoDao
- *
- * @author raide
- */
+include_once '../dto/ArriendoJuegoDto.php';
+include_once '../sql/ClasePDO.php';
+
 class ArriendoDao {
 
     public static function ingresarArriendo($dto) {

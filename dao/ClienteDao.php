@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-include_once '../dto/CLienteDto.php';
+include_once '../dto/ClienteDto.php';
 include_once '../sql/ClasePDO.php';
 
 class ClienteDao {
