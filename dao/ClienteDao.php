@@ -16,12 +16,15 @@ class ClienteDao {
     //*//
     public static function ingresarCliente($dto) {
         try {
-            if (ClienteDao::validarRut($dto->getRut())) {
+            if (ClienteDao::validarRut($dto->getRut()==FALSE)) {
                 $pdo = new clasePDO();
                 $funcion = $pdo->prepare("INSERT INTO cliente VALUES(?,?,?);");
-                $funcion->bindParam(1, $dto->getRut());
-                $funcion->bindParam(2, $dto->getNombre());
-                $funcion->bindParam(3, $dto->getFecha_nacimiento());
+                $funcion->bindParam(1, $rut);
+                $funcion->bindParam(2, $nombre);
+                $funcion->bindParam(3, $fecha);
+                $rut = $dto->getRut();
+                $nombre = $dto->getNombre();
+                $fecha = $dto->getFecha_nacimiento();
                 $funcion->execute();
                 $pdo = null;
                 return TRUE;
@@ -61,7 +64,7 @@ class ClienteDao {
     }
 
     private static function validarRut($rut) {
-        $validar = FALSE;
+        $validar=TRUE;
         try {
             $pdo = new clasePDO();
             $funcion = $pdo->prepare("SELECT * FROM cliente WHERE rut=? LIMIT 1");
@@ -69,7 +72,8 @@ class ClienteDao {
             $funcion->execute();
             $array = $funcion->fetchAll();
             foreach ($array as $value) {
-                $validar = TRUE;
+                $validar = FALSE;
+                break;
             }
             $pdo = null;
             return $validar;

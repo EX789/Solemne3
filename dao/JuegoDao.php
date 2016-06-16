@@ -16,14 +16,18 @@ class JuegoDao {
             if (JuegoDao::buscarJuego($dto->getCodigo())) {
                 $pdo = new clasePDO();
                 $funcion = $pdo->prepare("INSERT INTO juego VALUES(?,?,?,?);");
-                $funcion->bindParam(1, $dto->getCodigo());
-                $funcion->bindParam(2, $dto->getNombre());
+                $funcion->bindParam(1, $codigo);
+                $funcion->bindParam(2, $nombre);
+                $funcion->bindParam(3, $restriccion);
+                $funcion->bindParam(4, $valor);
+                $codigo = $dto->getCodigo();
+                $nombre = $dto->getNombre();
+                $valor = $dto->getValor();
                 if ($dto->getRestriccion() == TRUE) {
-                    $funcion->bindParam(3, 1);
+                    $restriccion = 1;
                 }else{
-                    $funcion->bindParam(3, 0);
+                    $restriccion = 0;
                 }
-                $funcion->bindParam(4, $dto->getValor());
                 $funcion->execute();
                 $pdo = null;
                 return TRUE;
@@ -63,7 +67,7 @@ class JuegoDao {
     }
 
     private static function buscarJuego($codigo) {
-        $validar = FALSE;
+        $validar = TRUE;
         try {
             $pdo = new clasePDO();
             $funcion = $pdo->prepare("SELECT * FROM juego WHERE codigo=? LIMIT 1");
@@ -71,7 +75,8 @@ class JuegoDao {
             $funcion->execute();
             $array = $funcion->fetchAll();
             foreach ($array as $value) {
-                $validar = TRUE;
+                $validar = FALSE;
+                break;
             }
             $pdo = null;
             return $validar;

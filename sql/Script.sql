@@ -4,13 +4,19 @@
 --   tipo:      Oracle Database 11g
 
 
+SET NAMES utf8;
 
+SET SQL_MODE='';
+
+create database if not exists `bd_arriendo`;
+
+USE `bd_arriendo`;
 
 CREATE
   TABLE Arriendo_Juego
   (
-    Cliente_rut    INTEGER NOT NULL ,
-    Juego_codigo   VARCHAR2 (10) NOT NULL ,
+    Cliente_rut    VARCHAR(20) NOT NULL ,
+    Juego_codigo   VARCHAR (10) NOT NULL ,
     valor_arriendo INTEGER NOT NULL ,
     fecha_arriendo DATE NOT NULL
   ) ;
@@ -20,8 +26,8 @@ Cliente_rut, Juego_codigo ) ;
 CREATE
   TABLE Cliente
   (
-    rut              INTEGER NOT NULL ,
-    nombre           VARCHAR2 (60) NOT NULL ,
+    rut              VARCHAR(20) NOT NULL ,
+    nombre           VARCHAR (60) NOT NULL ,
     fecha_nacimiento DATE NOT NULL
   ) ;
 ALTER TABLE Cliente ADD CONSTRAINT Cliente_PK PRIMARY KEY ( rut ) ;
@@ -29,8 +35,8 @@ ALTER TABLE Cliente ADD CONSTRAINT Cliente_PK PRIMARY KEY ( rut ) ;
 CREATE
   TABLE Juego
   (
-    codigo      VARCHAR2 (10) NOT NULL ,
-    nombre      VARCHAR2 (20) NOT NULL ,
+    codigo      VARCHAR (10) NOT NULL ,
+    nombre      VARCHAR (20) NOT NULL ,
     restriccion CHAR (1) NOT NULL ,
     valor       INTEGER NOT NULL
   ) ;

@@ -28,15 +28,6 @@ and open the template in the editor.
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <link rel="stylesheet" href="/resources/demos/style.css">
-        <script>
-            $(function () {
-                $("#datepicker").datepicker({
-                    dateFormat: 'yy-mm-dd',
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
-        </script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -70,7 +61,13 @@ and open the template in the editor.
             </div>
         </nav>
         <div class="container-fluid jumbotron" style="margin-top: 60px; height: auto; width : 60%; border-radius: 30px;">
-            <form class="form-horizontal" method="POST" action="../../../Archivos PHP/ingresarCliente.php">
+            <form class="form-horizontal" method="POST" action="../../../Archivos PHP/ingresarJuego.php">
+                <div class="form-group">
+                    <label for="inputCodigo" class="control-label col-xs-2">Codigo</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" id="inputCodigo" placeholder="Codigo" name="txbCodigo">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="inputNombre" class="control-label col-xs-2">Nombre</label>
                     <div class="col-xs-3">
@@ -78,15 +75,15 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputRut" class="control-label col-xs-2">Rut</label>
+                    <label for="inputRestriccion" class="control-label col-xs-2">Restriccion</label>
                     <div class="col-xs-3">
-                        <input type="text" class="form-control" id="inputRut" placeholder="Rut" name="txnRut">
+                        <input type="checkbox" name="chkRestriccion" value="TRUE" id="inputRestriccion" class="checkbox"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputNacimiento" class="control-label col-xs-2">Fecha de nacimiento</label>
+                    <label for="inputValor" class="control-label col-xs-2">Valor</label>
                     <div class="col-xs-3">
-                        <input type="text" name="txbFecha"  class="form-control" id="datepicker" placeholder="Fecha"/>
+                        <input type="text" class="form-control" id="inputValor" placeholder="Valor" name="txbValor">
                     </div>
                 </div>
                 <div class="form-group">
