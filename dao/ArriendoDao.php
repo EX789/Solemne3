@@ -1,13 +1,11 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 include_once '../dto/ArriendoJuegoDto.php';
-include_once '../sql/ClasePDO.php';
+include_once '../dto/ClienteDto.php';
+include_once '../dto/JuegoDto.php';
+include_once '../sql/clasePDO.php';
+
+
 
 class ArriendoDao {
 

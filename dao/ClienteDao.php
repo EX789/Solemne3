@@ -7,7 +7,7 @@
  */
 
 include_once '../dto/ClienteDto.php';
-include_once '../sql/ClasePDO.php';
+include_once '../sql/clasePDO.php';
 
 class ClienteDao {
 
