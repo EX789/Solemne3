@@ -38,8 +38,11 @@ and open the template in the editor.
 //        
 //        $grupo_rut = ArriendoDao::buscarRutCliente();
 //        $grupo_codigo = ArriendoDao::buscarCodigoJuego();
-        include_once '../../../dao/ClienteDao.php';
-        include_once '../../../dao/JuegoDao.php';
+        include_once '../../sql/clasePDO.php';
+        include_once '../../dto/ClienteDto.php';
+        include_once '../../dto/ArriendoJuegoDto.php';
+        include_once '../../dao/ClienteDao.php';
+        
         ?>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">

@@ -2,7 +2,7 @@
 
 include_once '../dao/ClienteDao.php';
 include_once '../dto/ClienteDto.php';
-echo '';
+
 $dto = new ClienteDto();
 
 $dto->setNombre($_POST['txbNombre']);
@@ -17,4 +17,4 @@ if (ClienteDao::ingresarCliente($dto)) {
     . ">alert(\"Registro NO guardado\");</script>";
 }
 
-echo'<script>window.location="../paginas/initializr/PHP/IngresarCliente.php";</script>';
+echo'<script>window.location="../paginas/PHP/IngresarCliente.php";</script>';

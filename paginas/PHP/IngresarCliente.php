@@ -70,7 +70,7 @@ and open the template in the editor.
             </div>
         </nav>
         <div class="container-fluid jumbotron" style="margin-top: 60px; height: auto; width : 60%; border-radius: 30px;">
-            <form class="form-horizontal" method="POST" action="../../../Archivos PHP/ingresarCliente.php">
+            <form class="form-horizontal" method="POST" action="../../Archivos PHP/ingresarCliente.php">
                 <div class="form-group">
                     <label for="inputNombre" class="control-label col-xs-2">Nombre</label>
                     <div class="col-xs-3">
