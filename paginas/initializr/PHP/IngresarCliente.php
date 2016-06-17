@@ -54,7 +54,7 @@ and open the template in the editor.
                     <a class="navbar-brand" href="../index.html">Inicio</a>
                     <a class="navbar-brand" href="IngresarCliente.php">Ingresar Cliente</a>
                     <a class="navbar-brand" href="IngresarJuego.php">Ingresar Juego</a>
-                    <a class="navbar-brand" href="#">Arrendar Juego</a>
+                    <a class="navbar-brand" href="IngresarArriendo.php">Arrendar Juego</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <form class="navbar-form navbar-right" role="form">

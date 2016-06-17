@@ -26,6 +26,40 @@ class ArriendoDao {
         }
     }
 
+    public static function buscarRutCliente() {
+        $array = new ArrayObject();
+        try {
+            $pdo = new clasePDO();
+            $funcion = $pdo->prepare("SELECT rut FROM cliente");
+            $funcion->execute();
+            $lista = $funcion->fetchAll();
+            foreach ($lista as $value) {
+                $array->append($value['rut']);
+            }
+            $pdo=null;
+            return $array;
+        } catch (PDOException $ex) {
+            echo 'Error al buscar: '. $ex->getMessage();
+        }
+    }
+    
+    public static function buscarCodigoJuego() {
+        $array = new ArrayObject();
+        try {
+            $pdo = new clasePDO();
+            $funcion = $pdo->prepare("SELECT codigo FROM juego");
+            $funcion->execute();
+            $lista = $funcion->fetchAll();
+            foreach ($lista as $value) {
+                $array->append($value['codigo']);
+            }
+            $pdo=null;
+            return $array;
+        } catch (PDOException $ex) {
+            echo 'Error al buscar: '. $ex->getMessage();
+        }
+    }
+    
 //    public static function buscarArriendoPorCliente($rut) {
 //        $lista = new ArrayObject();
 //        try {
